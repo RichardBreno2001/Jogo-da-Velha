@@ -1,0 +1,97 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+/* BIFURCAÇÃO */
+#btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#jogadores-2, #contra-IA {
+    width: 100px;
+    height: 75px;
+    margin: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 15px;
+}
+#jogadores-2:hover , #contra-IA:hover {
+    background-color: rgb(178, 176, 176);
+}
+
+/* CONTAINER DO JOGO */
+
+#container {
+    display: flex;
+    width: 300px;
+    margin: 0px;
+    margin: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+}
+.box {
+    height: 100px;
+    width: 100px;
+    border: 5px solid black;
+    box-sizing: border-box;
+}
+#bloco-1, #bloco-2 , #bloco-3 {
+    border-top: none;
+}
+#bloco-1,#bloco-4, #bloco-7 {
+    border-left: none;
+}
+#bloco-3, #bloco-6, #bloco-9 {
+    border-right: none;
+}
+#bloco-7, #bloco-8 , #bloco-9 {
+    border-bottom: none;
+}
+
+/* PLACAR */
+.score {
+    margin: 25px;
+    cursor: pointer;
+}
+.score > #x {
+    font-size: 3em;
+    color: red;
+}
+.score > #ponto-x {
+    font-size: 3em;
+}
+
+.score > #o {
+    font-size: 3em;
+    color: green;
+}
+.score > #ponto-o {
+    font-size: 3em;
+}
+#placar {
+    margin-top: 75px;
+}
+
+
+/* Elementos de X e O */ 
+
+.jogador-x {
+    font-size: 65px;
+    color: red;
+    display: inline-block;
+    line-height: 100px;
+    cursor: pointer;
+    width: 100%;
+    text-align: center;
+}
+.jogador-o {
+    height: 50px;
+    width: 50px;
+    border: 5px solid green;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 17px;
+    margin-left: 17px;
+}
