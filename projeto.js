@@ -25,7 +25,7 @@ for(let i = 0; i < boxes.length; i++) {
             //Clonando os elementos
             let CloneEl = El.cloneNode(true)
             this.appendChild(CloneEl)
-
+     
             QuemVenceu()
         }
 
@@ -206,5 +206,15 @@ function QuemVenceu() {
         }
 
     }
-    
+
+    let counter = 0
+
+    for(let i2 = 0; i2 < boxes.length; i2++) {
+        if(boxes[i2].childNodes[0] != undefined) {
+            counter++
+        }
+    }
+    if(counter == 9) {
+        console.log('Deu velha')
+    }
 }
