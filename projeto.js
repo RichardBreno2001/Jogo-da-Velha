@@ -242,4 +242,12 @@ function DeclararVencedor(vencedor) {
     setTimeout(function(){
         msg.classList.add('hide')
     },3000)
+
+    //Limpando o campo do jogo
+
+    let LimparCampo = document.querySelectorAll('.box div')
+
+    for(let i = 0; i < LimparCampo.length; i++) {
+        LimparCampo[i].parentNode.removeChild(LimparCampo[i])
+    }
 }
