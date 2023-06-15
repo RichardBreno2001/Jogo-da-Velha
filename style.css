@@ -95,3 +95,22 @@
     margin-top: 17px;
     margin-left: 17px;
 }
+
+#mensagem {
+    height: 100px;
+    width: 300px;
+    background-color: black;
+    position: absolute;
+    top: 100px;
+}
+
+#mensagem > #p_vazio {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    line-height: 100px;
+}
+
+.hide {
+    display: none !important;
+}

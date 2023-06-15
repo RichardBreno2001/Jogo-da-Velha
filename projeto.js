@@ -7,7 +7,7 @@ let btn2 = document.querySelector('#contra-IA')
 //Mensaegm 
 let msg = document.querySelector('#mensagem')
 let p_msg = document.querySelector('#p_vazio')
-let secondPlayer
+let secondPlayer 
 
 
 //Criando o contador de jogadas (definir qual a vez de quem jogar)
@@ -76,9 +76,9 @@ function QuemVenceu() {
         let b3Filho = b3.childNodes[0].className
 
         if(b1Filho == 'jogador-x' && b2Filho == 'jogador-x' && b3Filho == 'jogador-x') {
-            console.log('Jogador x venceu')
+            DeclararVencedor('jogador-x')
         } else if(b1Filho == 'jogador-o' && b2Filho == 'jogador-o' && b3Filho == 'jogador-o') {
-            console.log('Jogador o venceu')
+            DeclararVencedor('jogador-o')
         }
 
     }
@@ -93,9 +93,9 @@ function QuemVenceu() {
         let b6Filho = b6.childNodes[0].className
 
         if(b4Filho == 'jogador-x' && b5Filho == 'jogador-x' && b6Filho == 'jogador-x') {
-            console.log('Jogador x venceu')
+            DeclararVencedor('jogador-x')
         } else if(b4Filho == 'jogador-o' && b5Filho == 'jogador-o' && b6Filho == 'jogador-o') {
-            console.log('Jogador o venceu')
+            DeclararVencedor('jogador-o')
         }
 
     }
@@ -110,9 +110,9 @@ function QuemVenceu() {
         let b9Filho = b9.childNodes[0].className
 
         if(b7Filho == 'jogador-x' && b8Filho == 'jogador-x' && b9Filho == 'jogador-x') {
-            console.log('Jogador x venceu')
+            DeclararVencedor('jogador-x')
         } else if(b7Filho == 'jogador-o' && b8Filho == 'jogador-o' && b9Filho == 'jogador-o') {
-            console.log('Jogador o venceu')
+            DeclararVencedor('jogador-o')
         }
 
     }
@@ -130,9 +130,9 @@ function QuemVenceu() {
         let b7Filho = b7.childNodes[0].className
 
         if(b1Filho == 'jogador-x' && b4Filho == 'jogador-x' && b7Filho == 'jogador-x') {
-            console.log('Jogador x venceu')
+            DeclararVencedor('jogador-x')
         } else if(b1Filho == 'jogador-o' && b4Filho == 'jogador-o' && b7Filho == 'jogador-o') {
-            console.log('Jogador o venceu')
+            DeclararVencedor('jogador-o')
         }
 
     }
@@ -147,9 +147,9 @@ function QuemVenceu() {
         let b8Filho = b8.childNodes[0].className
 
         if(b2Filho == 'jogador-x' && b5Filho == 'jogador-x' && b8Filho == 'jogador-x') {
-            console.log('Jogador x venceu')
+            DeclararVencedor('jogador-x')
         } else if(b2Filho == 'jogador-o' && b5Filho == 'jogador-o' && b8Filho == 'jogador-o') {
-            console.log('Jogador o venceu')
+            DeclararVencedor('jogador-o')
         }
 
     }
@@ -164,9 +164,9 @@ function QuemVenceu() {
         let b9Filho = b9.childNodes[0].className
 
         if(b3Filho == 'jogador-x' && b6Filho == 'jogador-x' && b9Filho == 'jogador-x') {
-            console.log('Jogador x venceu')
+            DeclararVencedor('jogador-x')
         } else if(b3Filho == 'jogador-o' && b6Filho == 'jogador-o' && b9Filho == 'jogador-o') {
-            console.log('Jogador o venceu')
+            DeclararVencedor('jogador-o')
         }
 
     }
@@ -183,9 +183,9 @@ function QuemVenceu() {
         let b9Filho = b9.childNodes[0].className
 
         if(b1Filho == 'jogador-x' && b5Filho == 'jogador-x' && b9Filho == 'jogador-x') {
-            console.log('Jogador x venceu')
+            DeclararVencedor('jogador-x')
         } else if(b1Filho == 'jogador-o' && b5Filho == 'jogador-o' && b9Filho == 'jogador-o') {
-            console.log('Jogador o venceu')
+            DeclararVencedor('jogador-o')
         }
 
     }
@@ -200,9 +200,9 @@ function QuemVenceu() {
         let b7Filho = b7.childNodes[0].className
 
         if(b3Filho == 'jogador-x' && b5Filho == 'jogador-x' && b7Filho == 'jogador-x') {
-            console.log('Jogador x venceu')
+            DeclararVencedor('jogador-x')
         } else if(b3Filho == 'jogador-o' && b5Filho == 'jogador-o' && b7Filho == 'jogador-o') {
-            console.log('Jogador o venceu')
+            DeclararVencedor('jogador-o')
         }
 
     }
@@ -215,6 +215,31 @@ function QuemVenceu() {
         }
     }
     if(counter == 9) {
-        console.log('Deu velha')
+        DeclararVencedor()
     }
+}
+
+
+
+function DeclararVencedor(vencedor) {
+    let placar_x = document.querySelector('#ponto-x') //x
+    let placar_o = document.querySelector('#ponto-o') //o
+    let msg_2 = ''
+
+    if(vencedor == 'jogador-x') {
+        placar_x.textContent = parseInt(placar_x.textContent) +1
+        msg_2 = 'O jogador X venceu'
+    } else if ( vencedor == 'jogador-o') {
+        placar_o.textContent = parseInt(placar_o.textContent) +1
+        msg_2 = 'O jogador O venceu'
+    } else {
+        msg_2 = 'Deu velha'
+    }
+    //Removendo o que tem na classe do elemento
+    p_msg.innerHTML = msg_2
+    msg.classList.remove('hide')
+
+    setTimeout(function(){
+        msg.classList.add('hide')
+    },3000)
 }
