@@ -2,6 +2,14 @@
     margin: 0px;
     padding: 0px;
 }
+
+h1 {
+    font-size: 3em;
+    font-weight: bolder;
+    text-align: center;
+    padding-top: 30px;
+
+}
 /* BIFURCAÇÃO */
 #btns {
     display: flex;
