@@ -23,6 +23,7 @@
 /* CONTAINER DO JOGO */
 
 #container {
+    padding-top: 50px;
     display: flex;
     width: 300px;
     margin: 0px;

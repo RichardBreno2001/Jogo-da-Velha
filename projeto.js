@@ -2,8 +2,7 @@ let x = document.querySelector('.jogador-x')
 let o = document.querySelector('.jogador-o')
 let boxes = document.querySelectorAll('.box')
 //Botões de bifurcação
-let btn1 = document.querySelector('#jogadores-2')
-let btn2 = document.querySelector('#contra-IA')
+let btns = document.querySelectorAll('#btns button')
 //Mensaegm 
 let msg = document.querySelector('#mensagem')
 let p_msg = document.querySelector('#p_vazio')
@@ -15,6 +14,22 @@ let player1 = 0
 let player2 = 0
 // Será incrementado conforme ocorrem as jogadas
 
+
+//Bifurcação
+
+for(let i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click',function(){
+        secondPlayer = this.getAttribute('id')
+        for(let j = 0; j < btns.length; j++) {
+            btns[j].style.display = 'none'
+        }
+        setTimeout(function(){
+            let container = document.getElementById('container')
+            container.classList.remove('hide')
+        },500)
+    })
+
+}
 //Adicionando o evento de click aos boxes
 
 for(let i = 0; i < boxes.length; i++) {
@@ -25,16 +40,20 @@ for(let i = 0; i < boxes.length; i++) {
             //Clonando os elementos
             let CloneEl = El.cloneNode(true)
             this.appendChild(CloneEl)
+            if(player1 == player2) {
+                player1++
+                if(secondPlayer == 'contra-IA') {
+                    ComputerPlay()
+                    player2++
+                }
+            } else {
+                player2++
+            }
      
             QuemVenceu()
         }
 
-        //Computando a jogada
-        if(player1 == player2) {
-            player1++
-        } else {
-            player2++
-        }
+    
     })
 }
 
@@ -249,5 +268,28 @@ function DeclararVencedor(vencedor) {
 
     for(let i = 0; i < LimparCampo.length; i++) {
         LimparCampo[i].parentNode.removeChild(LimparCampo[i])
+    }
+}
+
+//IA
+
+function ComputerPlay() {
+    let O_Pc = o.cloneNode(true)
+    counter = 0
+    let QuantiaPreenchida = 0
+    for(let i = 0; i < boxes.length; i++) {
+        let NumAleatório = Math.floor(Math.random()*5)
+        if(boxes[i].childNodes[0] == undefined) {
+            if(NumAleatório <= 1) {
+                boxes[i].appendChild(O_Pc)
+                counter++
+                break
+            }
+        } else {
+            QuantiaPreenchida++
+        }
+    }
+    if(counter == 0 && QuantiaPreenchida < 9) {
+        ComputerPlay()
     }
 }
